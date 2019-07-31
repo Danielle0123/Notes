@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.ssm.user.mapper.UserMapper">
+    
+    <select id="list" resultType="User">
+        select * from user;
+    </select> 
+    
+  <update id="update" parameterType="user">
+     update user set name=#{name} ,mobile=#{mobile},address=#{address},sex=#{sex},birthday=#{birthday} where id=#{id};
+  </update>
+ 
+  <insert id="add" parameterType="user">
+     insert into user values (null,#{name},#{mobile},#{address},#{sex},#{birthday});
+  </insert>
+ 
+  <delete id="del">
+    delete from user where id=#{id};
+  </delete>
+ 
+  <select id="get" resultType="user">
+    select * from user where id =#{id}
+  </select>
+  
+</mapper>
